@@ -35,8 +35,7 @@ def update_my_graph(val_chosen):
         print(f"Building chart for {val_chosen}")
         df = getMarketData(val_chosen)
         fig = make_subplots(specs=[[{"secondary_y": True}]])
-
-        for col in df.columns:
+        for col in df.columns[:-1]:
             try:
                 fig.add_trace(
                     go.Scatter(mode="lines+markers", x=df["date"], y=df[col], name=col),
